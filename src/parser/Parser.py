@@ -1,6 +1,7 @@
 from collections import namedtuple
 from json import loads
-from os.path import exists
+from os import getcwd
+from os.path import exists, isabs, join
 from struct import unpack
 
 from Game import Game
@@ -10,6 +11,9 @@ from exeptions.InvalidFileException import InvalidFileException
 class Parser:
     def __init__(self, file: str) -> None:
         self.file: str = file
+
+        if not isabs(file):
+            self.file = join(getcwd(), file)
 
         if not exists(self.file):
             raise FileNotFoundError(f"The file does not exist: {self.file}")
