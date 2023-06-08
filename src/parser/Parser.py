@@ -26,17 +26,17 @@ class Parser:
         metadata: bytes
         file = namedtuple("length_fields", ["file_length", "metadata_offset", "metadata_length", "payload_header_offset", "payload_header_length", "payload_offset"])
 
-        with open(self.file, "rb") as data:
-            magic_numbers = data.read(4)
+        with open(self.file, "rb") as rofl_file:
+            magic_numbers = rofl_file.read(4)
 
             if magic_numbers != b"RIOT":
                 raise InvalidFileException("Invalid .rofl file. The file does not meet the required format.")
 
-            data.seek(262)
-            file(*unpack("IIIIII"), data.read(26))
-            data.seek(file.metadata_offset)
+            rofl_file.seek(262)
+            file(*unpack("IIIIII", rofl_file.read(26)[2:]))
+            rofl_file.seek(file.metadata_offset)
 
-            metadata = self.parse_metadata(data.read(file.metadata_length))
+            metadata = self.parse_metadata(rofl_file.read(file.metadata_length))
 
         return Game()
 
