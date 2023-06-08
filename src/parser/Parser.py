@@ -4,6 +4,9 @@ from os import getcwd
 from os.path import exists, isabs, join
 from struct import unpack
 from typing import List, Tuple
+from sys import path
+
+path.append(join(getcwd(), "src"))
 
 from Game import Game
 from exeptions.InvalidFileException import InvalidFileException
