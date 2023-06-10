@@ -36,7 +36,7 @@ class Parser:
                 raise InvalidFileException("Invalid .rofl file. The file does not meet the required format.")
 
             rofl_file.seek(262)
-            file_info(*unpack("IIIIII", rofl_file.read(26)[2:]))
+            file_info = FileInfo(*unpack("IIIIII", rofl_file.read(26)[2:]))
             rofl_file.seek(file_info.metadata_offset)
 
             metadata = self.parse_metadata(rofl_file.read(file_info.metadata_length))
@@ -46,6 +46,9 @@ class Parser:
     def parse_metadata(self, data: bytes) -> Tuple[List[str], List[str]]:
         metadata = loads(data.decode("utf-8"))
         players = loads(metadata["statsJson"].replace("\\", ""))
+
+        print(players)
+
         blue_players: list[Player] = []
         red_players: list[Player] = []
 
