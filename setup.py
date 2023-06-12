@@ -7,7 +7,7 @@ setup(
     packages = find_packages(),
     classifiers = [
         "Development Status :: 2 - Alpha",
-        "License :: OSI Approved :: Apache License 2.0",
+        "License :: Apache License 2.0",
         "Programming Language :: Python :: 3"
     ]
 )
