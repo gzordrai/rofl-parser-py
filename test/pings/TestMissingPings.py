@@ -3,9 +3,10 @@ from os import getcwd
 from os.path import join
 from sys import path
 
-path.append(getcwd())
+path.append(join(getcwd(), "src"))
 
-from src.models.Pings import Pings
+from player.Pings import Pings
+
 
 class TestPings(TestCase):
     def setUp(self) -> None:
