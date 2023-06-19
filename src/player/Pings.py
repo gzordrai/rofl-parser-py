@@ -7,7 +7,7 @@ class Pings:
         return self._pings.get("ALL_IN_PINGS", -1)
 
     @property
-    def assit_me(self) -> int:
+    def assist_me(self) -> int:
         return self._pings.get("ASSIST_ME_PINGS", -1)
 
     @property

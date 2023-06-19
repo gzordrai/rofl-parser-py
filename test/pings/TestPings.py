@@ -35,7 +35,7 @@ class TestPings(TestCase):
         self.assertEqual(pings.get("ALL_IN_PINGS"), self.pings.all_in)
 
     def test_assist_me_pings(self) -> None:
-        self.assertEqual(pings.get("ASSIST_ME_PINGS"), self.pings.assit_me)
+        self.assertEqual(pings.get("ASSIST_ME_PINGS"), self.pings.assist_me)
 
     def test_bait_pings(self) -> None:
         self.assertEqual(pings.get("BAIT_PINGS"), self.pings.bait)

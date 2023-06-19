@@ -16,7 +16,7 @@ class TestPings(TestCase):
         self.assertEqual(-1, self.pings.all_in)
 
     def test_missing_assist_me_pings(self) -> None:
-        self.assertEqual(-1, self.pings.assit_me)
+        self.assertEqual(-1, self.pings.assist_me)
 
     def test_missing_bait_pings(self) -> None:
         self.assertEqual(-1, self.pings.bait)
