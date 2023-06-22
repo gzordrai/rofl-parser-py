@@ -10,6 +10,7 @@ from src.player.Items import Items
 
 items: dict[str, int] = {
     "ITEM0": 0,
+    "ITEM1": 0,
     "ITEM2": 1,
     "ITEM3": 2,
     "ITEM4": 3,
