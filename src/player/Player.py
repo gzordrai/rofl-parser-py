@@ -8,13 +8,8 @@ from player import Pings
 
 
 class Player:
-    def __init__(self, champion: str, pings: Pings) -> None:
-        self.champion: str = champion
+    def __init__(self, pings: Pings) -> None:
         self.pings: Pings = pings
-
-    @property
-    def champion(self) -> str:
-        return self.champion
 
     @property
     def pings(self) -> Pings:
