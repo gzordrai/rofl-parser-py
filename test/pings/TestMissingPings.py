@@ -1,11 +1,11 @@
 from unittest import main, TestCase
-from os import getcwd
-from os.path import join
+from os.path import abspath, dirname, join
 from sys import path
 
-path.append(join(getcwd(), "src"))
+root_path: str = abspath(join(dirname(__file__), "../../"))
+path.append(root_path)
 
-from player.Pings import Pings
+from src.player.Pings import Pings
 
 
 class TestPings(TestCase):
