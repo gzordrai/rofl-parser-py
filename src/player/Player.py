@@ -8,9 +8,9 @@ from player import Pings
 
 
 class Player:
-    def __init__(self, uuid: str, username: str, pings: Pings) -> None:
+    def __init__(self, uuid: str, name: str, pings: Pings) -> None:
         self.uuid: str = uuid
-        self.username: str = username
+        self.name: str = name
         self.pings: Pings = pings
 
     @property
@@ -18,8 +18,8 @@ class Player:
         return self.uuid
 
     @property
-    def username(self) -> str:
-        return self.username
+    def name(self) -> str:
+        return self.name
 
     @property
     def pings(self) -> Pings:
