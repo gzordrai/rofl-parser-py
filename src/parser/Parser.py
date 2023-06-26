@@ -1,15 +1,14 @@
 from collections import namedtuple
 from json import loads
 from os import getcwd
-from os.path import exists, isabs, join
+from os.path import abspath, dirname, exists, isabs, join
 from struct import unpack
 from typing import List, Tuple
 from sys import path
 
-path.append(join(getcwd(), "src"))
+path.append(abspath(join(dirname(__file__), "../../")))
 
-from Game import Game
-from exeptions.InvalidFileException import InvalidFileException
+from src.exeptions.InvalidFileException import InvalidFileException
 
 
 class Parser:
