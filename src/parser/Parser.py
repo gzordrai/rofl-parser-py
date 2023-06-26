@@ -18,11 +18,11 @@ class Parser:
         if not isabs(file):
             self.file = join(getcwd(), file)
 
-        if not exists(self.file):
-            raise FileNotFoundError(f"The file does not exist: {self.file}")
-
         if not self.file.endswith(".rofl"):
             raise InvalidFileException("Invalid file format. Expected a .rofl file")
+
+        if not exists(self.file):
+            raise FileNotFoundError(f"The file does not exist: {self.file}")
 
     def parse(self) -> Game:
         with open(self.file, "rb") as rofl_file:
