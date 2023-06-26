@@ -10,6 +10,27 @@ path.append(abspath(join(dirname(__file__), "../../")))
 
 from src.exeptions.InvalidFileException import InvalidFileException
 
+FIELDS: list[list[str]] = [
+    [
+        "ALL_IN_PINGS",
+        "ASSIST_ME_PINGS",
+        "BAIT_PINGS",
+        "BASIC_PINGS",
+        "COMMAND_PINGS",
+        "DANGER_PINGS",
+        "ENEMY_MISSING_PINGS",
+        "ENEMY_VISION_PINGS",
+        "GET_BACK_PINGS",
+        "NEED_VISION_PINGS",
+        "HOLD_PINGS",
+        "ON_MY_WAY_PINGS",
+        "PUSH_PINGS",
+        "PUSH_PINGS",
+        "RETREAT_PINGS",
+        "VISION_CLEARED_PINGS"
+    ]
+]
+
 
 class Parser:
     def __init__(self, file: str) -> None:
@@ -45,6 +66,7 @@ class Parser:
     def parse_metadata(self, data: bytes) -> Tuple[List[str], List[str]]:
         metadata = loads(data.decode("utf-8"))
         players = loads(metadata["statsJson"].replace("\\", ""))
+        stats: list[dict[str, str]] = []
 
         print(players)
 
@@ -52,9 +74,7 @@ class Parser:
         red_players: list[Player] = []
 
         for player in players:
-            if player["TEAM"] == "100":
-                pass
-            elif player["TEAM"] == "200":
-                pass
+            for fields in FIELDS:
+                stats.append({ key: int(value) if value.isdigit() else value for key, value in player.items() if key in fields })
 
         return blue_players, red_players
