@@ -63,18 +63,13 @@ class Parser:
 
         return Game()
 
-    def parse_metadata(self, data: bytes) -> Tuple[List[str], List[str]]:
+    def parse_metadata(self, data: bytes) -> List[dict[str, any]]:
         metadata = loads(data.decode("utf-8"))
         players = loads(metadata["statsJson"].replace("\\", ""))
         stats: list[dict[str, str]] = []
-
-        print(players)
-
-        blue_players: list[Player] = []
-        red_players: list[Player] = []
 
         for player in players:
             for fields in FIELDS:
                 stats.append({ key: int(value) if value.isdigit() else value for key, value in player.items() if key in fields })
 
-        return blue_players, red_players
+        return stats
