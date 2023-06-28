@@ -1,6 +1,7 @@
 from enum import Enum
 
 class Items(Enum):
+    # Starter items
     DORANS_SHIELD: int = 1054
     DORANS_BLADE: int = 1055
     DORANS_RING: int = 1056
@@ -21,6 +22,15 @@ class Items(Enum):
     STEEL_SHOULDERGUARDS: int = 3854
     RELIC_SHIELD: int = 3858
     SPECTRAL_SICKLE: int = 3862
+
+    # Potions and Consumables
+    HEALTH_POTION: int = 2003
+    REFILLABLE_POTION: int = 2031
+    CORRUPTING_POTION: int = 2033
+    CONTROL_WARD: int = 2055
+    ELIXIR_OF_IRON: int = 2138
+    ELIXIR_OF_SORCERY: int = 2139
+    ELIXIR_OF_WRATH: int = 2140
 
     def __str__(self) -> str:
         return self.name.replace("_", " ").title()
