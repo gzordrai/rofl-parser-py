@@ -1,9 +1,18 @@
+from os.path import abspath, dirname, join
+from sys import path
+
+path.append(abspath(join(dirname(__file__), "../../")))
+
+from src.player.Player import Player
+
 class Game:
-    def __init__(self, duration: int, last_game_chunk_id: int, last_key_frame_id: int, version: str) -> None:
-        self.duration: int = duration
-        self.last_game_chunk_id: int = last_game_chunk_id
-        self.last_key_frame_id: int = last_key_frame_id
-        self.version: str = version
+    def __init__(self, info: dict[str, str | int], players: list[Player]) -> None:
+        self._info: dict[str, any] = info
+        self._players: list[Player] = players
+        self.duration: int
+        self.last_game_chunk_id: int
+        self.last_key_frame_id: int
+        self.version: str
 
     def get_duration(self) -> int:
         return self.duration
