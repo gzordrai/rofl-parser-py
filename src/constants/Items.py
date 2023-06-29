@@ -41,5 +41,15 @@ class Items(Enum):
     YOUR_CUT: int = 3400
     EYE_OF_THE_HERALD: int = 3513
 
+    # Boots
+    BOOTS: int = 1001
+    BERSERKERS_GREAVES: int = 3006
+    BOOTS_OF_SWIFTNESS: int = 3009
+    SORCERERS_SHOES: int = 3020
+    PLATED_STEELCAPS: int = 3047
+    MERCURYS_TREADS: int = 3111
+    MOBILITY_BOOTS: int = 3117
+    IONIAN_BOOTS_OF_LUCIDITY: int = 3158
+
     def __str__(self) -> str:
         return self.name.replace("_", " ").title()
