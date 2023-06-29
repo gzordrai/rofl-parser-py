@@ -32,5 +32,14 @@ class Items(Enum):
     ELIXIR_OF_SORCERY: int = 2139
     ELIXIR_OF_WRATH: int = 2140
 
+    # Distributed items
+    TOTAL_BISCUIT_OF_EVERLASTING_WILL: int = 2010
+    PORO_SNAX: int = 2052
+    MINION_DEMATERIALIZER: int = 2403
+    SLIGHTLY_MAGICAL_BOOTS: int = 2422
+    PERFECTLY_TIMED_STOPWATCH: int = 2423
+    YOUR_CUT: int = 3400
+    EYE_OF_THE_HERALD: int = 3513
+
     def __str__(self) -> str:
         return self.name.replace("_", " ").title()
