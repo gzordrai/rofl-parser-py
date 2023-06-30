@@ -24,3 +24,23 @@ class Player:
     @property
     def pings(self) -> Pings:
         return self.pings
+
+    # TODO
+    @property
+    def was_early_surrender_accomplice(self) -> int:
+        return 0
+
+    # TODO
+    @property
+    def was_leaver(self) -> int:
+        return 0
+
+    # TODO
+    @property
+    def was_surrender_due_to_afk(self) -> int:
+        return 0
+
+    # TODO
+    @property
+    def win(self) -> bool:
+        return True
