@@ -9,6 +9,7 @@ from sys import path
 path.append(abspath(join(dirname(__file__), "../../")))
 
 from src.exeptions.InvalidFileException import InvalidFileException
+from src.models.Game import Game
 
 FIELDS: list[list[str]] = [
     [
