@@ -68,6 +68,8 @@ class Parser:
         players = loads(metadata["statsJson"].replace("\\", ""))
         stats: list[dict[str, str]] = []
 
+        stats.append({ key: value for key, value in metadata.items() if key != "statsJson" })
+
         for player in players:
             for fields in FIELDS:
                 stats.append({ key: int(value) if value.isdigit() else value for key, value in player.items() if key in fields })
