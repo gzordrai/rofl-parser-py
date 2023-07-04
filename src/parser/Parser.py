@@ -62,7 +62,7 @@ class Parser:
 
             metadata = self.parse_metadata(rofl_file.read(file_info.metadata_length))
 
-        return Game()
+        return Game(*metadata)
 
     def parse_metadata(self, data: bytes) -> List[dict[str, any]]:
         metadata = loads(data.decode("utf-8"))
